@@ -1,6 +1,6 @@
 ===================   NOTATKI Z SIECI  =======================
 
----- W£¥CZANIE TRYBU UPRZYWILEJOWANEGO ----
+---- WÅÄ„CZANIE TRYBU UPRZYWILEJOWANEGO ----
 Switch> enable
 Switch#
 
@@ -26,17 +26,17 @@ Switch(config)# ip domain-name <domain_name>
 Switch# copy running-config startup-config
 
 
----- DODAWANIE HAS£A DO KONSOLI ----
+---- DODAWANIE HASÅA DO KONSOLI ----
 Switch(config)# username <name> secret <pass>
 Switch(config)# line console 0
 Switch(config-line)# login local
 
 
----- DODAWANIE HAS£A DO TRYBU UPRZYWILEJOWANEGO ----
+---- DODAWANIE HASÅA DO TRYBU UPRZYWILEJOWANEGO ----
 Switch (config)# enable secret <password>
 
 
----- W£¥CZANIE INTERFEJSU ----
+---- WÅÄ„CZANIE INTERFEJSU ----
 Switch(config-if)# no shutdown
 
 
@@ -74,7 +74,7 @@ S1#(config)# vlan 10
 S1#(config-vlan)# name <Name>
 
 
----- PRZYPISYWANIE VLAN DO PORTÓW ----
+---- PRZYPISYWANIE VLAN DO PORTÃ“W ----
 S2(config)# interface f0/11
 S2(config-if)# switchport mode access
 S2(config-if)# switchport access vlan 10
@@ -85,17 +85,17 @@ S3(config-if)# mls qos trust cos
 S3(config-if)# switchport voice vlan 150
 
 
----- TRYBY PORTÓW NA SWITCH'U ----
+---- TRYBY PORTÃ“W NA SWITCH'U ----
 
-*    switchport mode access – w tej opcji port zawsze pozostanie w trybie nontrunking, bêdzie równie¿ próbowa³ zmieniæ po³¹czenie na nontrunking, jeœli mu siê nie uda i tak pozostanie jako access
+*    switchport mode access â€“ w tej opcji port zawsze pozostanie w trybie nontrunking, bÄ™dzie rÃ³wnieÅ¼ prÃ³bowaÅ‚ zmieniÄ‡ poÅ‚Ä…czenie na nontrunking, jeÅ›li mu siÄ™ nie uda i tak pozostanie jako access
 
-*    switchport mode trunk – ten port zawsze bêdzie w trybie trunk, bêdzie równie¿ próbowa³ zmieniæ po³¹czenie na trunk, jeœli mu siê nie uda i tak pozostanie jako trunk, jest to tryb domyœlny dla trybów trunk i ma te¿ nazwê On
+*    switchport mode trunk â€“ ten port zawsze bÄ™dzie w trybie trunk, bÄ™dzie rÃ³wnieÅ¼ prÃ³bowaÅ‚ zmieniÄ‡ poÅ‚Ä…czenie na trunk, jeÅ›li mu siÄ™ nie uda i tak pozostanie jako trunk, jest to tryb domyÅ›lny dla trybÃ³w trunk i ma teÅ¼ nazwÄ™ On
 
-*    switchport mode dynamic auto – powoduje, ¿ê port zmienia siê w port trunk, jeœli port po drugiej stronie jest skonfigurowany jako trunk lub desirable
+*    switchport mode dynamic auto â€“ powoduje, Å¼Ä™ port zmienia siÄ™ w port trunk, jeÅ›li port po drugiej stronie jest skonfigurowany jako trunk lub desirable
 
-*    switchport mode dynamic desirable – w tym trybie port aktywnie stara zmieniæ ³¹cze na trunk, staje siê ³¹czem trunk w momencie gdy port s¹siaduj¹cy jest w trybie trunk, desirable lub auto
+*    switchport mode dynamic desirable â€“ w tym trybie port aktywnie stara zmieniÄ‡ Å‚Ä…cze na trunk, staje siÄ™ Å‚Ä…czem trunk w momencie gdy port sÄ…siadujÄ…cy jest w trybie trunk, desirable lub auto
 
-*    switchport nonnegotiate – permanentny stan trunk, nie podlega ¿adnym negocjacjom, do powstania po³¹czenia trunk port s¹siaduj¹cy musi byæ ustawiony w tryb trunk
+*    switchport nonnegotiate â€“ permanentny stan trunk, nie podlega Å¼adnym negocjacjom, do powstania poÅ‚Ä…czenia trunk port sÄ…siadujÄ…cy musi byÄ‡ ustawiony w tryb trunk
 
 
 ---- KONFIGURACJA VTP ----
@@ -104,7 +104,7 @@ Switch(config)# vtp domain <nazwa_domeny>
 Switch(config)# vtp password <password>
 
 
----- KONFIGURACJA PODINTERFEJSÓW ----
+---- KONFIGURACJA PODINTERFEJSÃ“W ----
 R1(config)# int g0/0.10
 R1(config-subif)# encapsulation dot1Q 10 <-- numer vlan
 R1(config-subif)# ip address 172.17.10.1 255.255.255.0
