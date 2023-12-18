@@ -1,0 +1,124 @@
+===================   NOTATKI Z SIECI  =======================
+
+---- W£¥CZANIE TRYBU UPRZYWILEJOWANEGO ----
+Switch> enable
+Switch#
+
+
+---- EDYCJA KONFIGURACJI ----
+Switch# configure terminal
+Switch(config)#
+
+
+---- WYBIERANIE INTERFEJSU ----
+Switch(config)# interface <interface_name>
+Switch(config-if)#
+
+Switch(config)# interface range f0/0-10
+
+
+---- ZMIANA NAZWY HOSTA I DOMENY ----
+Switch(config)# hostname <nazwa_hosta>
+Switch(config)# ip domain-name <domain_name>
+
+
+---- ZAPISYWANIE KONFIGURACJI ----
+Switch# copy running-config startup-config
+
+
+---- DODAWANIE HAS£A DO KONSOLI ----
+Switch(config)# username <name> secret <pass>
+Switch(config)# line console 0
+Switch(config-line)# login local
+
+
+---- DODAWANIE HAS£A DO TRYBU UPRZYWILEJOWANEGO ----
+Switch (config)# enable secret <password>
+
+
+---- W£¥CZANIE INTERFEJSU ----
+Switch(config-if)# no shutdown
+
+
+----  ZMIANA ADRESU IP ----
+Router(config-if)#i p address 192.168.0.1 255.255.255.0
+
+
+---- ZMIANA ADRESU IPV6 ----
+Router(config-if)# ipV6 address ffff:::::ffff/64
+
+
+---- MASKI ADRESU IP ----
++1 - .128
++2 - .192
++3 - .224
++4 - .240
++5 - .248
++6 - .252
++7 - .254
+
+
+---- KONFIGURACJA SSH ----
+Router (config)# hostname R1
+R1(config)# ip domain-name krzak.pl
+R1(config)# crypto key generate rsa
+R1(config)# ip ssh version 2
+R1(config)# line vty 0 15
+R1(config-line)# transport input ssh
+R1(config-line)# login local
+R1(config-line)# exit
+
+
+---- TWORZENIE SIECI VLAN ----
+S1#(config)# vlan 10
+S1#(config-vlan)# name <Name>
+
+
+---- PRZYPISYWANIE VLAN DO PORTÓW ----
+S2(config)# interface f0/11
+S2(config-if)# switchport mode access
+S2(config-if)# switchport access vlan 10
+
+---- VOICE VLAN ----
+S3(config)# interface f0/11
+S3(config-if)# mls qos trust cos
+S3(config-if)# switchport voice vlan 150
+
+
+---- TRYBY PORTÓW NA SWITCH'U ----
+
+*    switchport mode access – w tej opcji port zawsze pozostanie w trybie nontrunking, bêdzie równie¿ próbowa³ zmieniæ po³¹czenie na nontrunking, jeœli mu siê nie uda i tak pozostanie jako access
+
+*    switchport mode trunk – ten port zawsze bêdzie w trybie trunk, bêdzie równie¿ próbowa³ zmieniæ po³¹czenie na trunk, jeœli mu siê nie uda i tak pozostanie jako trunk, jest to tryb domyœlny dla trybów trunk i ma te¿ nazwê On
+
+*    switchport mode dynamic auto – powoduje, ¿ê port zmienia siê w port trunk, jeœli port po drugiej stronie jest skonfigurowany jako trunk lub desirable
+
+*    switchport mode dynamic desirable – w tym trybie port aktywnie stara zmieniæ ³¹cze na trunk, staje siê ³¹czem trunk w momencie gdy port s¹siaduj¹cy jest w trybie trunk, desirable lub auto
+
+*    switchport nonnegotiate – permanentny stan trunk, nie podlega ¿adnym negocjacjom, do powstania po³¹czenia trunk port s¹siaduj¹cy musi byæ ustawiony w tryb trunk
+
+
+---- KONFIGURACJA VTP ----
+Switch(config)# vtp mode server //(lub klient)
+Switch(config)# vtp domain <nazwa_domeny>
+Switch(config)# vtp password <password>
+
+
+---- KONFIGURACJA PODINTERFEJSÓW ----
+R1(config)# int g0/0.10
+R1(config-subif)# encapsulation dot1Q 10 <-- numer vlan
+R1(config-subif)# ip address 172.17.10.1 255.255.255.0
+R1(config)# interface g0/0
+S2(config-if)# switchport mode trunk
+
+
+---- ROUTING WARSTWY 3 ----
+MLS(config-if)# switchport mode trunk
+MLS(config-if)# switchport trunk native vlan 99
+MLS(config-if)# switchport trunk encapsulation dot1q
+
+
+---- ROUTING WARSTWY 3 DLA IPV6 ----
+MLS(config)# ipv6 unicast-routing
+MLS(config)# interface vlan 10
+MLS(config-if)# ipv6 address 2001:db8:acad:10::1/64
