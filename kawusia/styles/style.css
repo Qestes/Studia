@@ -1,0 +1,28 @@
+/* Stylesheet editing miscellenious items on the page */
+
+html{
+    scroll-behavior: smooth;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    width: 100vw;
+    max-width:100%;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer{
+    background-color:saddlebrown;
+    color: lightgrey;
+    text-align: center;
+    width: 100%;
+
+}
+

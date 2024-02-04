@@ -1,0 +1,9 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login'])){
+        require_once('profile_forms.php');
+    }
+    else{
+        require_once('profile_settings.php');
+    }
+?>

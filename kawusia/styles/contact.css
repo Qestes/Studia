@@ -1,0 +1,26 @@
+.contact_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.contact_form{
+    width: 70%;
+    padding: 2.5%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+}
+.contact_table{
+    width: 100%;
+    text-align: center;
+}
+.contact_table>tbody>tr>td>input, .contact_table>tbody>tr>td>textarea{
+    width:  90%;
+    height: 90%;
+    box-sizing: border-box;
+}
+#contact_submit{
+    width: 100%;
+    padding: 5px;
+}

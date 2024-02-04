@@ -1,0 +1,57 @@
+/* Stylesheet editing the starting panel */
+
+.starting_panel{
+    display:flex;
+    width: 100vw;
+    height: 90vh;
+    max-width:100%;
+    flex-wrap: wrap;
+    background-image: url("../images/coffeebeans-start.webp");
+    opacity: 0.9;
+
+}
+
+.starting_panel>div{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.starting_panel>.upper_start{
+    height: 60%;
+    align-items: end;
+}
+
+.starting_panel>.upper_start>h1{
+    font-size: 3em;
+    border: 5px solid saddlebrown;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.starting_panel>.lower_start{
+    height: 40%;
+    align-items: start;
+}
+
+.lowering_button{
+    border: 5px solid saddlebrown;
+    background-color: burlywood;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lower_start>a{
+    
+    text-decoration: none;
+    color: saddlebrown;
+    font-size: 2em;
+}

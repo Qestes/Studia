@@ -1,0 +1,26 @@
+/* Sheetstyle editing content area of the page */
+
+.content_box{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    min-height: 90vh;
+    overflow: hidden;
+}
+.center{
+    background-color: antiquewhite;
+    max-width: 1000px;
+    width: 80vw;
+    padding: 5vh 5vw;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 5px 5px black;
+    
+}
+
+@media (max-width: 700px){
+    .center{
+        width: 100%;
+    }
+}
